@@ -1,2 +1,5 @@
-# QMP
-Proyecto para la facultad, diseño de sistemas. 
+# Diagrama de clases:
+
+
+
+![](Diagrama%20de%20clases.png)
