@@ -9,7 +9,9 @@ import java.lang.Exception;
 
 public class Usuario {
     List<Prenda> guardarropa = new ArrayList<Prenda>();
-    Prenda borrador = new Prenda();
+    //TODO
+    // Crear clase borrador en vez de usar la de prenda
+    BuilderPrenda borrador = new BuilderPrenda();
 
     public List<Prenda> getGuardarropa() {
         return guardarropa;
@@ -21,7 +23,7 @@ public class Usuario {
 
     public void guardarPrenda() throws Exception {
         if(borrador.esValida()){
-            this.agregarPrendas(borrador);
+            this.agregarPrendas(borrador.toPrenda());
         }else {
             Exception excepcion = new Exception("La prenda que intentas guardar es invalida");
             throw excepcion;

@@ -3,24 +3,31 @@ package domain.atuendos;
 import java.util.List;
 
 public class Atuendo {
-    private List<Prenda> accesorios;
-    private List<Prenda> prendasParteArriba;
+    private Prenda accesorio;
+    private Prenda prendasParteArriba;
     private Prenda prendaParteAbajo;
     private Prenda calzado;
 
-    public List<Prenda> getAccesorios() {
-        return accesorios;
+    public Atuendo(Prenda accesorios, Prenda prendasParteArriba, Prenda prendaParteAbajo, Prenda calzado) {
+        this.accesorio = accesorios;
+        this.prendasParteArriba = prendasParteArriba;
+        this.prendaParteAbajo = prendaParteAbajo;
+        this.calzado = calzado;
     }
 
-    public void setAccesorios(List<Prenda> accesorios) {
-        this.accesorios = accesorios;
+    public Prenda getAccesorio() {
+        return accesorio;
     }
 
-    public List<Prenda> getPrendasParteArriba() {
+    public void setAccesorio(Prenda accesorio) {
+        this.accesorio = accesorio;
+    }
+
+    public Prenda getPrendaParteArriba() {
         return prendasParteArriba;
     }
 
-    public void setPrendasParteArriba(List<Prenda> prendasParteArriba) {
+    public void setPrendaParteArriba(Prenda prendasParteArriba) {
         this.prendasParteArriba = prendasParteArriba;
     }
 

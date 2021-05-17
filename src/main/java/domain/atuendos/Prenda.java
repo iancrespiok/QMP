@@ -7,24 +7,23 @@ public class Prenda {
     private Tela tela;
     private Color colorPrimario;
     private Color colorSecundario;
+    private RangoDeTemperaturas temperaturaDeUso;
 
-    public Prenda(Categoria categoria, Tipo tipo, Tela tela, Color colorPrimario, Color colorSecundario) {
+    public Prenda(Categoria categoria, Tipo tipo, Tela tela, RangoDeTemperaturas temperaturaDeUso,Color colorPrimario, Color colorSecundario) {
         this.categoria = categoria;
         this.tipo = tipo;
         this.tela = tela;
+        this.temperaturaDeUso = temperaturaDeUso;
         this.colorPrimario = colorPrimario;
         this.colorSecundario = colorSecundario;
     }
 
-    public Prenda(Categoria categoria, Tipo tipo, Tela tela, Color colorPrimario) {
+    public Prenda(Categoria categoria, Tipo tipo, Tela tela,RangoDeTemperaturas temperaturaDeUso, Color colorPrimario) {
         this.categoria = categoria;
         this.tipo = tipo;
         this.tela = tela;
+        this.temperaturaDeUso = temperaturaDeUso;
         this.colorPrimario = colorPrimario;
-    }
-
-    public Prenda(){
-
     }
 
     public Categoria getCategoria() {
@@ -47,6 +46,10 @@ public class Prenda {
         return colorSecundario;
     }
 
+    public RangoDeTemperaturas getTemperaturaDeUso() {
+        return temperaturaDeUso;
+    }
+
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
@@ -67,9 +70,4 @@ public class Prenda {
         this.colorSecundario = colorSecundario;
     }
 
-    public boolean esValida() {
-        //TODO
-        //FALTA INFO
-        return false;
-    }
 }

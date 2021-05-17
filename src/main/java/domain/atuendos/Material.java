@@ -4,5 +4,9 @@ public enum Material {
     SEDA,
     JEAN,
     LANA,
-    ALGODON
+    ALGODON,
+    CUERO,
+    GAMUZA,
+    ACETATO,
+    FRIZA
 }
