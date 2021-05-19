@@ -8,5 +8,6 @@ public enum Material {
     CUERO,
     GAMUZA,
     ACETATO,
+    PLASTICO,
     FRIZA
 }

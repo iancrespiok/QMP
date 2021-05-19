@@ -13,5 +13,10 @@ public enum Tipo {
     MAYA,
     RELOJ,
     ANILLO,
-    PULSERA
+    PULSERA,
+    CAMPERA,
+    SWEATER,
+    BUZO,
+    MUSCULOSA,
+    SHORT, BUFANDA
 }

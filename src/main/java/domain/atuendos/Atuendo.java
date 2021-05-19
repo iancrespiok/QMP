@@ -8,7 +8,7 @@ public class Atuendo {
     private Prenda prendaParteAbajo;
     private Prenda calzado;
 
-    public Atuendo(Prenda accesorios, Prenda prendasParteArriba, Prenda prendaParteAbajo, Prenda calzado) {
+    public Atuendo(Prenda prendasParteArriba, Prenda prendaParteAbajo, Prenda calzado, Prenda accesorios) {
         this.accesorio = accesorios;
         this.prendasParteArriba = prendasParteArriba;
         this.prendaParteAbajo = prendaParteAbajo;

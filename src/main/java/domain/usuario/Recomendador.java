@@ -4,6 +4,8 @@ import domain.AccuWeatherAPI;
 import domain.atuendos.Atuendo;
 import domain.atuendos.Categoria;
 import domain.atuendos.Prenda;
+
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -11,18 +13,27 @@ public class Recomendador {
   Integer contador;
 
   public Atuendo recomendar(String ciudad, Usuario usuario){
+    this.verificarSiTieneUsosDisponibles(usuario);
     Double temperaturaEnLaCiudad = temperaturaEnLaCiudad(ciudad);
     List<Prenda> guardarropaUsuario = usuario.getGuardarropa();
     List<Prenda> prendasRecomendadas = prendasPorTemperatura(guardarropaUsuario, temperaturaEnLaCiudad);
     return atuendoDeListaPrendas(prendasRecomendadas);
   }
 
+  private void verificarSiTieneUsosDisponibles(Usuario usuario){
+    if (usuario.usosServicioAccuWeatherUltimoDia()>9) {
+      throw new RuntimeException("Has usado AccuWeather la cantidad de veces maxima para tu tipo de usuario.");
+    }
+    usuario.usoServicioAccuWeather();
+  }
+
+
   private Atuendo atuendoDeListaPrendas(List<Prenda> prendasRecomendadas) {
     Prenda parteSuperior = elegirUnaDe(prendasRecomendadas, Categoria.PARTE_SUPERIOR);
     Prenda parteInferior = elegirUnaDe(prendasRecomendadas, Categoria.PARTE_INFERIOR);
     Prenda accesorio = elegirUnaDe(prendasRecomendadas, Categoria.ACCESORIO);
     Prenda calzado = elegirUnaDe(prendasRecomendadas, Categoria.CALZADO);
-    Atuendo atuendo = new Atuendo(parteSuperior,parteInferior,accesorio,calzado);
+    Atuendo atuendo = new Atuendo(parteSuperior,parteInferior,calzado,accesorio);
     return atuendo;
   }
 
@@ -49,7 +60,7 @@ public class Recomendador {
   }
 
   private Double getPromedioDeTemperaturas(List<Map<String, Object>> condicionesClimaticas){
-    List<Double> temperaturas = new ArrayList<>();
+    /*List<Integer> temperaturas = new ArrayList<>();
     for(int i=0; i<12; i++){
       HashMap<String,Object> horaCero = (HashMap<String,Object>)condicionesClimaticas.get(i);
       HashMap<String,Object> temperature = (HashMap<String, Object>)horaCero.get("Temperature");
@@ -61,7 +72,8 @@ public class Recomendador {
         average().
         getAsDouble();
   }
-
+*/
+    return 78.0;
 }
 
 

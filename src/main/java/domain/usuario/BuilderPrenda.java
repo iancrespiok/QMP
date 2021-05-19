@@ -5,8 +5,8 @@ import domain.atuendos.*;
 public class BuilderPrenda {
     private Categoria categoria;
     private Tipo tipo;
-    private Tela tela;
-    private RangoDeTemperaturas temperaturaDeUso;
+    private Tela tela = new Tela();
+    private RangoDeTemperaturas temperaturaDeUso = new RangoDeTemperaturas();
     private Color colorPrimario;
     private Color colorSecundario;
 
@@ -19,6 +19,14 @@ public class BuilderPrenda {
 
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
+    }
+
+    public void setMaterial(Material material){
+        this.tela.setMaterial(material);
+    }
+
+    public void setTrama(Trama trama){
+        this.tela.setTrama(trama);
     }
 
     public void setTela(Tela tela) {
@@ -39,6 +47,10 @@ public class BuilderPrenda {
 
     public void setTemperaturaMaximaDeUso(Double temperaturaMaximaDeUso){
         this.temperaturaDeUso.setTemperaturaMaxima(temperaturaMaximaDeUso);
+    }
+
+    public void setRangoTemperatura(RangoDeTemperaturas rangoDeTemperaturas){
+        this.temperaturaDeUso = rangoDeTemperaturas;
     }
 
     public boolean esValida() {

@@ -70,4 +70,8 @@ public class Prenda {
         this.colorSecundario = colorSecundario;
     }
 
+    public Boolean esParaCalor(){
+        return this.temperaturaDeUso.getTemperaturaMinima() > 19;
+    }
+
 }

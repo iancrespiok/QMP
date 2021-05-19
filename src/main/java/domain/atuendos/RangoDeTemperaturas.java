@@ -3,10 +3,16 @@ package domain.atuendos;
 public class RangoDeTemperaturas {
   private Double temperaturaMaxima;
   private Double temperaturaMinima;
+  private Boolean independienteDeTemperatura;
 
-  public RangoDeTemperaturas(Double temperaturaMaxima, Double temperaturaMinima) {
+  public RangoDeTemperaturas(Double temperaturaMinima, Double temperaturaMaxima) {
     this.temperaturaMaxima = temperaturaMaxima;
     this.temperaturaMinima = temperaturaMinima;
+    this.independienteDeTemperatura = false;
+  }
+
+  public RangoDeTemperaturas() {
+    this.independienteDeTemperatura = true;
   }
 
   public void setTemperaturaMaxima(Double temperaturaMaxima) {
@@ -17,7 +23,16 @@ public class RangoDeTemperaturas {
     this.temperaturaMinima = temperaturaMinima;
   }
 
-  public Boolean esTemperaturaValida(Double temperatura){
-    return temperatura>temperaturaMinima && temperatura<temperaturaMaxima;
+  public Double getTemperaturaMaxima() {
+    return temperaturaMaxima;
   }
+
+  public Double getTemperaturaMinima() {
+    return temperaturaMinima;
+  }
+
+  public Boolean esTemperaturaValida(Double temperatura){
+    return this.independienteDeTemperatura || (temperatura>temperaturaMinima && temperatura<temperaturaMaxima);
+  }
+
 }
