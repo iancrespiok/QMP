@@ -7,6 +7,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public class Recomendaciones {
   Usuario ian;
   Color negro;
@@ -76,4 +83,21 @@ public class Recomendaciones {
 
     Assert.assertTrue(atuendo.getPrendaParteArriba().esParaCalor());
   }
+
+  @Test
+  public void pedirRecomendacionMasDe10VecesElMismoDiaHabiendoPedidoMesesAntes(){
+    Recomendador recomendador = new Recomendador();
+    List<Atuendo> atuendos = new ArrayList<>();
+    ian.getUsosServicioAccuWeather().add(LocalDate.of(2021,5,18));
+    ian.getUsosServicioAccuWeather().add(LocalDate.of(2021,3,28));
+    int i = 0;
+    while (i<10){
+      atuendos.add(recomendador.recomendar("CABA", ian));
+      i++;
+    }
+    Exception exception = assertThrows(RuntimeException.class,() -> recomendador.recomendar("Ciudad Autonoma de Buenos Aires", ian));
+    assertEquals("Has usado AccuWeather la cantidad de veces maxima para tu tipo de usuario.", exception.getMessage());
+    assertEquals(10,atuendos.size());
+  }
+
 }
