@@ -9,8 +9,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Recomendador {
-  Integer contador;
-
   public Atuendo recomendar(String ciudad, Usuario usuario) {
     this.verificarSiTieneUsosDisponibles(usuario);
     Double temperaturaEnLaCiudad = temperaturaEnLaCiudad(ciudad);
@@ -52,7 +50,7 @@ public class Recomendador {
         collect(Collectors.toList());
   }
 
-  private Double temperaturaEnLaCiudad(String ciudad) {
+  public Double temperaturaEnLaCiudad(String ciudad) {
     AccuWeatherAPI apiClima = new AccuWeatherAPI();
     List<Map<String, Object>> condicionesClimaticas = apiClima.getWeather(ciudad);
     return getPromedioDeTemperaturas(condicionesClimaticas);

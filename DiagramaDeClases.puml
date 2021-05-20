@@ -1,0 +1,67 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Prenda{
+Color colorPrincipal
+Color colorSecundario
+Tela tela
+RangoDeTemperaturas temperaturasDeUso
+Tipo tipo
+Categoria categoria
+esParaCalor()
+}
+
+class Usuario{
+List<Prenda> guardarropa
+BuilderPrenda borrador
+List<LocalDate> usosAccuWeather
+setear**""X""**(**""AtributoX""**)
+guardarPrenda()
+usoServicioAccuWeather()
+usosServicioAccuWeatherUltimoDia()
+}
+
+class Recomendador{
+recomendar(Usuario usuario, String ciudad)
+temperaturaEnLaCiudad(String ciudad)
+}
+
+abstract class Sastre{
+fabricarUniforme()
+//fabricarCalzado()//
+//fabricarParteSuperior()//
+//fabricarParteInferior()//
+}
+
+class SastreColegioX{
+fabricarCalzado()
+fabricarParteSuperior()
+fabricarParteInferior()
+}
+
+class Uniforme{
+Prenda prendaSuperior
+Prenda prendaInferior
+Prenda calzado
+}
+
+class BuilderPrenda{
+//Atributos de Prenda//
+toPrenda()
+esValida()
+}
+
+class RangoDeTemperaturas{
+Double temperaturaMinima
+Double temperaturaMaxima
+Boolean independiente
+esTemperaturaValida(Double temp)
+}
+
+SastreColegioX-u-|>Sastre
+Sastre->Uniforme
+Usuario-u->BuilderPrenda
+Usuario-l->Prenda
+Prenda-u->RangoDeTemperaturas
+
+@enduml
