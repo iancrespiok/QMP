@@ -1,5 +1,5 @@
-# Diagrama de clases:
+# Diagrama de clases basicas:
 
 
 
-![](Diagrama%20de%20clases.png)
+![](DiagramaDeClases.png)
