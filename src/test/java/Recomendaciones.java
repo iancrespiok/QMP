@@ -2,8 +2,6 @@ import domain.atuendos.*;
 import domain.usuario.Recomendador;
 import domain.usuario.Usuario;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -76,10 +74,10 @@ public class Recomendaciones {
   public void recomendarAtuendoAIanEnCABA(){
     Recomendador recomendador = new Recomendador();
     Atuendo atuendo = recomendador.recomendar("Ciudad Autonoma de Buenos Aires", ian);
-    System.out.println("1) La recomendacion para " + atuendo.getPrendaParteArriba().getCategoria()+ " un " + atuendo.getPrendaParteArriba().getTipo() + " de material "+ atuendo.getPrendaParteArriba().getTela().getMaterial() + " ,trama " +atuendo.getPrendaParteArriba().getTela().getTrama() + " y color " + atuendo.getPrendaParteArriba().getColorPrimario().imprimir() );
-    System.out.println("2) La recomendacion para " + atuendo.getPrendaParteAbajo().getCategoria()+ " un " + atuendo.getPrendaParteAbajo().getTipo() + " de material "+ atuendo.getPrendaParteAbajo().getTela().getMaterial() + " ,trama " +atuendo.getPrendaParteAbajo().getTela().getTrama() + " y color " + atuendo.getPrendaParteAbajo().getColorPrimario().imprimir() );
-    System.out.println("3) La recomendacion para " + atuendo.getCalzado().getCategoria()+ " un " + atuendo.getCalzado().getTipo() + " de material "+ atuendo.getCalzado().getTela().getMaterial() + " ,trama " +atuendo.getCalzado().getTela().getTrama() + " y color " + atuendo.getCalzado().getColorPrimario().imprimir() );
-    System.out.println("4) La recomendacion para " + atuendo.getAccesorio().getCategoria()+ " un " + atuendo.getAccesorio().getTipo() + " de material "+ atuendo.getAccesorio().getTela().getMaterial() + " ,trama " +atuendo.getAccesorio().getTela().getTrama() + " y color " + atuendo.getAccesorio().getColorPrimario().imprimir() );
+    System.out.println("1) La recomendacion para " + atuendo.getPrendaParteArriba().getCategoria()+ " un " + atuendo.getPrendaParteArriba().getTipo() + " de material "+ atuendo.getPrendaParteArriba().getTela().getMaterial() + " ,trama " +atuendo.getPrendaParteArriba().getTela().getTrama() + " y color " + atuendo.getPrendaParteArriba().getColorPrimario().descripcion() );
+    System.out.println("2) La recomendacion para " + atuendo.getPrendaParteAbajo().getCategoria()+ " un " + atuendo.getPrendaParteAbajo().getTipo() + " de material "+ atuendo.getPrendaParteAbajo().getTela().getMaterial() + " ,trama " +atuendo.getPrendaParteAbajo().getTela().getTrama() + " y color " + atuendo.getPrendaParteAbajo().getColorPrimario().descripcion() );
+    System.out.println("3) La recomendacion para " + atuendo.getCalzado().getCategoria()+ " un " + atuendo.getCalzado().getTipo() + " de material "+ atuendo.getCalzado().getTela().getMaterial() + " ,trama " +atuendo.getCalzado().getTela().getTrama() + " y color " + atuendo.getCalzado().getColorPrimario().descripcion() );
+    System.out.println("4) La recomendacion para " + atuendo.getAccesorio().getCategoria()+ " un " + atuendo.getAccesorio().getTipo() + " de material "+ atuendo.getAccesorio().getTela().getMaterial() + " ,trama " +atuendo.getAccesorio().getTela().getTrama() + " y color " + atuendo.getAccesorio().getColorPrimario().descripcion() );
 
     Assert.assertTrue(atuendo.getPrendaParteArriba().esParaCalor());
   }

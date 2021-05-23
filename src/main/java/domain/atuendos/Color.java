@@ -9,7 +9,7 @@ public class Color {
         this.blue = blue;
     }
 
-    public String imprimir(){
+    public String descripcion(){
         return "formado en RGB con las siguientes proporciones; "+ (this.red / 256)*100 + "% de rojo, " + (this.green / 256)*100 + "% de verde y " + (this.blue / 256)*100 + "% de azul";
     }
 }

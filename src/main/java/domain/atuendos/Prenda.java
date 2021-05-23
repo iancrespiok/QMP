@@ -6,7 +6,7 @@ public class Prenda {
     private Tipo tipo;
     private Tela tela;
     private Color colorPrimario;
-    private Color colorSecundario;
+    private Color colorSecundario = null;
     private RangoDeTemperaturas temperaturaDeUso;
 
     public Prenda(Categoria categoria, Tipo tipo, Tela tela, RangoDeTemperaturas temperaturaDeUso,Color colorPrimario, Color colorSecundario) {
@@ -72,6 +72,11 @@ public class Prenda {
 
     public Boolean esParaCalor(){
         return this.temperaturaDeUso.getTemperaturaMinima() > 19;
+    }
+
+    public String descripcion(){
+        String texto = this.getTipo() + " de " + this.getTela().getMaterial() + " con trama " + this.getTela().getTrama() + " y de color " + this.getColorPrimario().descripcion();
+        return texto;
     }
 
 }

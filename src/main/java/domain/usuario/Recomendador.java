@@ -1,6 +1,7 @@
 package domain.usuario;
 
 import domain.AccuWeatherAPI;
+import domain.ProveedorClima;
 import domain.atuendos.Atuendo;
 import domain.atuendos.Categoria;
 import domain.atuendos.Prenda;
@@ -11,7 +12,8 @@ import java.util.stream.Collectors;
 public class Recomendador {
   public Atuendo recomendar(String ciudad, Usuario usuario) {
     this.verificarSiTieneUsosDisponibles(usuario);
-    Double temperaturaEnLaCiudad = temperaturaEnLaCiudad(ciudad);
+    ProveedorClima proveedorClima = new ProveedorClima();
+    Double temperaturaEnLaCiudad = proveedorClima.getPromedioTemperatura(ciudad);
     List<Prenda> guardarropaUsuario = usuario.getGuardarropa();
     List<Prenda> prendasRecomendadas = prendasPorTemperatura(guardarropaUsuario, temperaturaEnLaCiudad);
     return atuendoDeListaPrendas(prendasRecomendadas);
@@ -50,27 +52,6 @@ public class Recomendador {
         collect(Collectors.toList());
   }
 
-  public Double temperaturaEnLaCiudad(String ciudad) {
-    AccuWeatherAPI apiClima = new AccuWeatherAPI();
-    List<Map<String, Object>> condicionesClimaticas = apiClima.getWeather(ciudad);
-    return getPromedioDeTemperaturas(condicionesClimaticas);
-  }
 
-  private Double getPromedioDeTemperaturas(List<Map<String, Object>> condicionesClimaticas) {
-    /*List<Integer> temperaturas = new ArrayList<>();
-    for(int i=0; i<12; i++){
-      HashMap<String,Object> horaCero = (HashMap<String,Object>)condicionesClimaticas.get(i);
-      HashMap<String,Object> temperature = (HashMap<String, Object>)horaCero.get("Temperature");
-      temperaturas.add((Double) temperature.get("Value"));
-    }
-    return temperaturas.
-        stream().
-        mapToDouble(d->d).
-        average().
-        getAsDouble();
-  }
-*/
-    return 78.0;
-  }
 }
 
