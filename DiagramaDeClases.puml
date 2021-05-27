@@ -12,7 +12,7 @@ esParaCalor()
 }
 
 class Usuario{
-List<Prenda> guardarropa
+List<Guardarropa> guardarropas
 BuilderPrenda borrador
 List<LocalDate> usosAccuWeather
 setear**""X""**(**""AtributoX""**)
@@ -58,10 +58,24 @@ Boolean independiente
 esTemperaturaValida(Double temp)
 }
 
+class Guardarropa{
+  List<Usuario> duenios
+  List<Prenda> prendas
+  List<Prenda> sugerenciasAgregar
+  List<Prenda> sugerenciasEliminar
+  listarPrendasAEliminar()
+  listarPrendasAAgregar()
+  eliminarPrendaRecomendada(Integer seleccion)
+  agregarPrendaRecomendada(Integer seleccion)
+  listarPrendas(List<Prenda> listaPrendas)
+}
+
 SastreColegioX-u-|>Sastre
 Sastre->Uniforme
 Usuario-u->BuilderPrenda
 Usuario-l->Prenda
 Prenda-u->RangoDeTemperaturas
+Usuario->Guardarropa
+
 
 @enduml
