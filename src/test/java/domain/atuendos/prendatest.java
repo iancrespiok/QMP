@@ -19,9 +19,9 @@ public class prendatest {
         ///////me pinta hacer otra cosa
         iancrespiok.setearTela(new Tela(Material.ALGODON,Trama.A_CUADROS));
         /////bueno voy a ver que onda pusheando esta prenda, capaz no es valida
-        iancrespiok.guardarPrenda();
+        iancrespiok.guardarPrenda(0);
 
-        assertEquals(iancrespiok.getGuardarropa().get(0).getCategoria(), Categoria.CALZADO);
+        assertEquals(iancrespiok.getGuardarropa(0).getPrendas().get(0).getCategoria(), Categoria.CALZADO);
 
     }
 }

@@ -10,21 +10,27 @@ import java.lang.Exception;
 import java.util.stream.Collectors;
 
 public class Usuario {
-    private List<Prenda> guardarropa = new ArrayList<Prenda>();
+    private List<Guardarropa> guardarropas = new ArrayList<Guardarropa>();
     private BuilderPrenda borrador = new BuilderPrenda();
     private List<LocalDate> usosServicioAccuWeather = new ArrayList<>();
 
-    public List<Prenda> getGuardarropa() {
-        return guardarropa;
+    public Guardarropa getGuardarropa(Integer posicion){
+        return this.guardarropas.get(posicion);
     }
 
-    public void agregarPrendas(Prenda ... prendas){
-        Collections.addAll(this.guardarropa,prendas);
+    public void agregarPrendas(Guardarropa guardarropa, Prenda ... prendas){
+        Integer guardarropaPosicion = guardarropas.indexOf(guardarropa);
+        Guardarropa guardarropaElegido = guardarropas.get(guardarropaPosicion);
+        guardarropaElegido.agregarPrendas(prendas);
     }
 
-    public void guardarPrenda() throws Exception {
+    public void agregarGuardarropa(Guardarropa guardarropa){
+        guardarropas.add(guardarropa);
+    }
+
+    public void guardarPrenda(Integer posicionGuardarropas) throws Exception {
         if(borrador.esValida()){
-            this.agregarPrendas(borrador.toPrenda());
+            this.guardarropas.get(posicionGuardarropas).agregarPrendas(borrador.toPrenda());
         }else {
             Exception excepcion = new Exception("La prenda que intentas guardar es invalida");
             throw excepcion;
@@ -79,6 +85,12 @@ public class Usuario {
             filter(fecha -> fecha.isEqual(LocalDate.now())).
             collect(Collectors.toList()).
             size();
+    }
+
+    public List<Prenda> todaSuRopa() {
+        List<Prenda> todaLaRopaDelUsuario = new ArrayList<>();
+        guardarropas.forEach(guardarropa -> todaLaRopaDelUsuario.addAll(guardarropa.getPrendas()));
+        return todaLaRopaDelUsuario;
     }
 }
 

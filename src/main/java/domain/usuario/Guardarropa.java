@@ -8,16 +8,17 @@ import java.util.Collections;
 import java.util.List;
 
 public class Guardarropa {
-  private List<Usuario> duenios;
-  private List<Prenda> prendas;
-  private List<Prenda> sugerenciasAgregar;
-  private List<Prenda> sugerenciasEliminar;
+  private List<Usuario> duenios = new ArrayList<>();
+  private List<Prenda> prendas = new ArrayList<>();
+  private List<Prenda> sugerenciasAgregar = new ArrayList<>();
+  private List<Prenda> sugerenciasEliminar = new ArrayList<>();
 
-  public Guardarropa(List<Usuario> duenios, List<Prenda> prendas) {
+  public Guardarropa(Usuario duenio) {
+    this.duenios.add(duenio);
+  }
+
+  public Guardarropa(List<Usuario> duenios) {
     this.duenios = duenios;
-    this.prendas = prendas;
-    this.sugerenciasAgregar = new ArrayList<>();
-    this.sugerenciasEliminar = new ArrayList<>();
   }
 
   public void agregarPrendas(Prenda ... prendas){

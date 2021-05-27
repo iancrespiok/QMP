@@ -1,4 +1,5 @@
 import domain.atuendos.*;
+import domain.usuario.Guardarropa;
 import domain.usuario.Recomendador;
 import domain.usuario.Usuario;
 import org.junit.Assert;
@@ -34,6 +35,8 @@ public class Recomendaciones {
 
     ian = new Usuario();
 
+    Guardarropa guardaRopa1 = new Guardarropa(ian);
+
     Prenda camperaInvernal = new Prenda(Categoria.PARTE_SUPERIOR, Tipo.CAMPERA, new Tela(Material.FRIZA),frio, negro);
     Prenda musculosaRoja = new Prenda(Categoria.PARTE_SUPERIOR, Tipo.MUSCULOSA, new Tela(Material.ALGODON), calor, rojo);
     Prenda sweaterVerde = new Prenda(Categoria.PARTE_SUPERIOR, Tipo.SWEATER, new Tela(Material.LANA), frio, verde);
@@ -45,7 +48,8 @@ public class Recomendaciones {
     Prenda bufandaNegra = new Prenda(Categoria.ACCESORIO, Tipo.BUFANDA, new Tela(Material.LANA), frio, negro);
     Prenda anillo = new Prenda(Categoria.ACCESORIO, Tipo.ANILLO, new Tela(Material.SEDA), new RangoDeTemperaturas(), negro);
 
-    ian.agregarPrendas(camperaInvernal,musculosaRoja,sweaterVerde,bermudaAzul,jeanNegro,shortBlanco,zapatosDeCuero,ojotasBlancas,bufandaNegra,anillo);
+    ian.agregarGuardarropa(guardaRopa1);
+    ian.agregarPrendas(guardaRopa1, camperaInvernal,musculosaRoja,sweaterVerde,bermudaAzul,jeanNegro,shortBlanco,zapatosDeCuero,ojotasBlancas,bufandaNegra,anillo);
   }
 
   @Test
@@ -57,9 +61,9 @@ public class Recomendaciones {
     ian.setearColorPrimario(negro);
     ian.setearTipo(Tipo.REMERA);
     ian.setearCategoria(Categoria.PARTE_SUPERIOR);
-    ian.guardarPrenda();
-    int posicionUltimaPrenda = ian.getGuardarropa().size() - 1;
-    Prenda prendaQueTiene = ian.getGuardarropa().get(posicionUltimaPrenda);
+    ian.guardarPrenda(0);
+    int posicionUltimaPrenda = ian.getGuardarropa(0).getPrendas().size() - 1;
+    Prenda prendaQueTiene = ian.getGuardarropa(0).getPrendas().get(posicionUltimaPrenda);
 
     Assert.assertEquals(prendaQueDeberiaTener.getCategoria(), prendaQueTiene.getCategoria());
     Assert.assertEquals(prendaQueDeberiaTener.getTipo(), prendaQueTiene.getTipo());

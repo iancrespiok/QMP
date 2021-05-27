@@ -11,12 +11,12 @@ public class ProveedorClima {
 
   public Double getPromedioTemperatura(String ciudad){
     List<Map<String,Object>> condicionesClimaticas = this.getApiClima().getWeather(ciudad);
-
     List<Double> temperaturas = new ArrayList<>();
+
     for(int i=0; i<12; i++){
-      HashMap<String,Object> horaCero = (HashMap<String,Object>)condicionesClimaticas.get(i);
-      HashMap<String,Object> temperature = (HashMap<String, Object>)horaCero.get("Temperature");
-      temperaturas.add((Double) temperature.get("Value"));
+      HashMap<String,Object> hora_i = (HashMap<String,Object>) condicionesClimaticas.get(i);
+      HashMap<String,Object> temperature = (HashMap<String, Object>) hora_i.get("Temperature");
+      temperaturas.add((Integer) temperature.get("Value"));
     }
 
     return temperaturas.

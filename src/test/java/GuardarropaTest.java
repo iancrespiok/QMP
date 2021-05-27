@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class GuardarropaTest {
   Color negro;
@@ -16,10 +15,8 @@ public class GuardarropaTest {
   Color azul;
   RangoDeTemperaturas frio;
   RangoDeTemperaturas calor;
-  List<Prenda> prendasGuardarropa;
   Guardarropa guardarropa;
   Usuario ian;
-  List<Usuario> dueniosGuardarropa;
 
   @BeforeEach
   public void setup() throws Exception {
@@ -32,10 +29,8 @@ public class GuardarropaTest {
     calor = new RangoDeTemperaturas(20.00,100.00);
 
     ian = new Usuario();
-    dueniosGuardarropa = new ArrayList<>();
-    dueniosGuardarropa.add(ian);
-    prendasGuardarropa = new ArrayList<>();
-    guardarropa = new Guardarropa(dueniosGuardarropa, prendasGuardarropa);
+    guardarropa = new Guardarropa(ian);
+    ian.agregarGuardarropa(guardarropa);
 
     Prenda camperaInvernal = new Prenda(Categoria.PARTE_SUPERIOR, Tipo.CAMPERA, new Tela(Material.FRIZA),frio, negro);
     Prenda musculosaRoja = new Prenda(Categoria.PARTE_SUPERIOR, Tipo.MUSCULOSA, new Tela(Material.ALGODON), calor, rojo);
@@ -48,7 +43,7 @@ public class GuardarropaTest {
     Prenda bufandaNegra = new Prenda(Categoria.ACCESORIO, Tipo.BUFANDA, new Tela(Material.LANA), frio, negro);
     Prenda anillo = new Prenda(Categoria.ACCESORIO, Tipo.ANILLO, new Tela(Material.SEDA), new RangoDeTemperaturas(), negro);
 
-    guardarropa.agregarPrendas(camperaInvernal,musculosaRoja,sweaterVerde,bermudaAzul,jeanNegro,shortBlanco,zapatosDeCuero,ojotasBlancas,bufandaNegra);
+    ian.agregarPrendas(guardarropa,camperaInvernal,musculosaRoja,sweaterVerde,bermudaAzul,jeanNegro,shortBlanco,zapatosDeCuero,ojotasBlancas,bufandaNegra);
   }
 
   @Test

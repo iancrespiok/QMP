@@ -14,8 +14,8 @@ public class Recomendador {
     this.verificarSiTieneUsosDisponibles(usuario);
     ProveedorClima proveedorClima = new ProveedorClima();
     Double temperaturaEnLaCiudad = proveedorClima.getPromedioTemperatura(ciudad);
-    List<Prenda> guardarropaUsuario = usuario.getGuardarropa();
-    List<Prenda> prendasRecomendadas = prendasPorTemperatura(guardarropaUsuario, temperaturaEnLaCiudad);
+    List<Prenda> todaLaRopaDelUsuario = usuario.todaSuRopa();
+    List<Prenda> prendasRecomendadas = prendasPorTemperatura(todaLaRopaDelUsuario, temperaturaEnLaCiudad);
     return atuendoDeListaPrendas(prendasRecomendadas);
   }
 
