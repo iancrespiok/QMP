@@ -1,6 +1,9 @@
 package domain.usuario;
 
 import domain.atuendos.*;
+import domain.clima.Alerta;
+import domain.clima.RepositorioAlertasMeteoreologicas;
+import domain.usuario.acciones.AccionPorAlerta;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,6 +16,24 @@ public class Usuario {
     private List<Guardarropa> guardarropas = new ArrayList<Guardarropa>();
     private BuilderPrenda borrador = new BuilderPrenda();
     private List<LocalDate> usosServicioAccuWeather = new ArrayList<>();
+    private List<AccionPorAlerta> accionesPorAlerta = new ArrayList<>();
+
+    public Usuario() {
+    }
+
+    public List<AccionPorAlerta> getAccionesPorAlerta() {
+        return accionesPorAlerta;
+    }
+
+    public void setAccionesPorAlerta(List<AccionPorAlerta> accionesPorAlerta) {
+        this.accionesPorAlerta = accionesPorAlerta;
+    }
+
+    public void ejecutarAcciones(){
+        Alerta alerta = RepositorioAlertasMeteoreologicas.getInstance().ultimaAlerta();
+        accionesPorAlerta.stream()
+            .map(accion -> accion.ejecutar(alerta));
+    }
 
     public Guardarropa getGuardarropa(Integer posicion){
         return this.guardarropas.get(posicion);

@@ -15,6 +15,7 @@ class Usuario{
 List<Guardarropa> guardarropas
 BuilderPrenda borrador
 List<LocalDate> usosAccuWeather
+List<AccionPorAlerta> accionesPorAlerta
 setear**""X""**(**""AtributoX""**)
 guardarPrenda()
 usoServicioAccuWeather()
@@ -70,12 +71,56 @@ class Guardarropa{
   listarPrendas(List<Prenda> listaPrendas)
 }
 
+interface AccionPorAlerta{
+    ejecutar()
+}
+
+class Mail{
+    ejecutar()
+}
+class Notificacion{
+    ejecutar()
+}
+class Recalculo{
+    ejecutar()
+}
+
+class RepositorioAlertasMeteorologicas{
+    getInstance()
+    ultimaAlerta()
+}
+
+class AlertaMeteorologica{
+    Alerta alerta
+    List<AccionPorAlerta> acciones
+    LocalDate fecha
+}
+
+enum Alerta{
+    LLUVIA,
+    TORMENTA,
+    NIEVE
+}
+
+class Admin{
+}
+
+class Empleado{
+}
+
+
 SastreColegioX-u-|>Sastre
 Sastre->Uniforme
 Usuario-u->BuilderPrenda
 Usuario-l->Prenda
 Prenda-u->RangoDeTemperaturas
 Usuario->Guardarropa
+AlertaMeteorologica -d> RepositorioAlertasMeteorologicas
 
+Usuario-d>AccionPorAlerta
+AlertaMeteorologica->Alerta
+Notificacion..>AccionPorAlerta
+Recalculo..>AccionPorAlerta
+Mail..>AccionPorAlerta
 
 @enduml
