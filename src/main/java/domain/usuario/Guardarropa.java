@@ -2,22 +2,21 @@ package domain.usuario;
 
 import domain.atuendos.Prenda;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Guardarropa {
-  private List<Usuario> duenios = new ArrayList<>();
+  private List<Usuarie> duenios = new ArrayList<>();
   private List<Prenda> prendas = new ArrayList<>();
   private List<Prenda> sugerenciasAgregar = new ArrayList<>();
   private List<Prenda> sugerenciasEliminar = new ArrayList<>();
 
-  public Guardarropa(Usuario duenio) {
+  public Guardarropa(Usuarie duenio) {
     this.duenios.add(duenio);
   }
 
-  public Guardarropa(List<Usuario> duenios) {
+  public Guardarropa(List<Usuarie> duenios) {
     this.duenios = duenios;
   }
 
@@ -25,11 +24,11 @@ public class Guardarropa {
     Collections.addAll(this.getPrendas(),prendas);
   }
 
-  public void agregarDuenios(Usuario ... duenios){
+  public void agregarDuenios(Usuarie... duenios){
     Collections.addAll(this.getDuenios(),duenios);
   }
 
-  public List<Usuario> getDuenios() {
+  public List<Usuarie> getDuenios() {
     return duenios;
   }
 

@@ -29,4 +29,5 @@ public class Tela {
     public Trama getTrama() {
         return trama;
     }
+
 }

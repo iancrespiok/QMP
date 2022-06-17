@@ -1,7 +1,7 @@
 import domain.atuendos.*;
 import domain.usuario.Guardarropa;
 import domain.usuario.Recomendador;
-import domain.usuario.Usuario;
+import domain.usuario.Usuarie;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class Recomendaciones {
-  Usuario ian;
+  Usuarie ian;
   Color negro;
   Color blanco;
   Color rojo;
@@ -33,7 +33,7 @@ public class Recomendaciones {
     frio = new RangoDeTemperaturas(-10.00,20.00);
     calor = new RangoDeTemperaturas(20.00,100.00);
 
-    ian = new Usuario();
+    ian = new Usuarie();
 
     Guardarropa guardaRopa1 = new Guardarropa(ian);
 

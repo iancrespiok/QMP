@@ -1,12 +1,12 @@
 package domain.atuendos;
 
 public class Color {
-    int red, green, blue;
+    Double red, green, blue;
 
     public Color(int red, int green, int blue) {
-        this.red = red;
-        this.green = green;
-        this.blue = blue;
+        this.red = Double.valueOf(red);
+        this.green = Double.valueOf(green);
+        this.blue = Double.valueOf(blue);
     }
 
     public String descripcion(){

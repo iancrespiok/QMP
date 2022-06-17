@@ -1,6 +1,5 @@
 package domain.usuario;
 
-import domain.AccuWeatherAPI;
 import domain.ProveedorClima;
 import domain.atuendos.Atuendo;
 import domain.atuendos.Categoria;
@@ -10,20 +9,20 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Recomendador {
-  public Atuendo recomendar(String ciudad, Usuario usuario) {
-    this.verificarSiTieneUsosDisponibles(usuario);
+  public Atuendo recomendar(String ciudad, Usuarie usuarie) {
+    this.verificarSiTieneUsosDisponibles(usuarie);
     ProveedorClima proveedorClima = new ProveedorClima();
-    Double temperaturaEnLaCiudad = proveedorClima.getPromedioTemperatura(ciudad);
-    List<Prenda> todaLaRopaDelUsuario = usuario.todaSuRopa();
+    Double temperaturaEnLaCiudad =0.00;// proveedorClima.getPromedioTemperatura(ciudad);
+    List<Prenda> todaLaRopaDelUsuario = usuarie.todaSuRopa();
     List<Prenda> prendasRecomendadas = prendasPorTemperatura(todaLaRopaDelUsuario, temperaturaEnLaCiudad);
     return atuendoDeListaPrendas(prendasRecomendadas);
   }
 
-  private void verificarSiTieneUsosDisponibles(Usuario usuario) {
-    if (usuario.usosServicioAccuWeatherUltimoDia() > 9) {
+  private void verificarSiTieneUsosDisponibles(Usuarie usuarie) {
+    if (usuarie.usosServicioAccuWeatherUltimoDia() > 9) {
       throw new RuntimeException("Has usado AccuWeather la cantidad de veces maxima para tu tipo de usuario.");
     }
-    usuario.usoServicioAccuWeather();
+    usuarie.usoServicioAccuWeather();
   }
 
 

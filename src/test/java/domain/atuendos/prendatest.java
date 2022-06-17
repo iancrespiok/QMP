@@ -1,6 +1,5 @@
 package domain.atuendos;
-import com.sun.xml.internal.bind.v2.TODO;
-import domain.usuario.Usuario;
+import domain.usuario.Usuarie;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,7 +12,8 @@ public class prendatest {
     }
 
     public void creoUnaPrendaDeAPocoYLaGuardoAlGuardarropa() throws Exception {
-        Usuario iancrespiok = new Usuario();
+        Usuarie iancrespiok = new Usuarie();
+
         iancrespiok.setearCategoria(Categoria.CALZADO);
         iancrespiok.setearColorPrimario(new Color(123,241,233));
         ///////me pinta hacer otra cosa

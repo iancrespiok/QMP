@@ -1,11 +1,8 @@
 import domain.atuendos.*;
 import domain.usuario.Guardarropa;
-import domain.usuario.Usuario;
+import domain.usuario.Usuarie;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class GuardarropaTest {
   Color negro;
@@ -16,10 +13,13 @@ public class GuardarropaTest {
   RangoDeTemperaturas frio;
   RangoDeTemperaturas calor;
   Guardarropa guardarropa;
-  Usuario ian;
+  Usuarie ian;
 
   @BeforeEach
   public void setup() throws Exception {
+
+
+    ///
     negro = new Color(256,256,256);
     blanco = new Color(0,0,0);
     rojo = new Color(256,0,0);
@@ -28,7 +28,7 @@ public class GuardarropaTest {
     frio = new RangoDeTemperaturas(-10.00,20.00);
     calor = new RangoDeTemperaturas(20.00,100.00);
 
-    ian = new Usuario();
+    ian = new Usuarie();
     guardarropa = new Guardarropa(ian);
     ian.agregarGuardarropa(guardarropa);
 
@@ -46,6 +46,11 @@ public class GuardarropaTest {
     ian.agregarPrendas(guardarropa,camperaInvernal,musculosaRoja,sweaterVerde,bermudaAzul,jeanNegro,shortBlanco,zapatosDeCuero,ojotasBlancas,bufandaNegra);
   }
 
+  @Test
+  public void pruebaColor(){
+    Color c = new Color(25,0,200);
+    System.out.println(c.descripcion());
+  }
   @Test
   public void testImpresionPrendas(){
     System.out.println(guardarropa.listarPrendasEnGuardarropa());

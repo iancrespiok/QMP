@@ -1,7 +1,5 @@
 package domain.atuendos;
 
-import java.util.List;
-
 public class Atuendo {
     private Prenda accesorio;
     private Prenda prendasParteArriba;
@@ -10,6 +8,12 @@ public class Atuendo {
 
     public Atuendo(Prenda prendasParteArriba, Prenda prendaParteAbajo, Prenda calzado, Prenda accesorios) {
         this.accesorio = accesorios;
+        this.prendasParteArriba = prendasParteArriba;
+        this.prendaParteAbajo = prendaParteAbajo;
+        this.calzado = calzado;
+    }
+
+    public Atuendo(Prenda prendasParteArriba, Prenda prendaParteAbajo, Prenda calzado) {
         this.prendasParteArriba = prendasParteArriba;
         this.prendaParteAbajo = prendaParteAbajo;
         this.calzado = calzado;

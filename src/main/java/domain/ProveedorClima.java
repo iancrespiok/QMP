@@ -9,22 +9,22 @@ public class ProveedorClima {
     return apiClima;
   }
 
-  public Double getPromedioTemperatura(String ciudad){
-    List<Map<String,Object>> condicionesClimaticas = this.getApiClima().getWeather(ciudad);
-    List<Double> temperaturas = new ArrayList<>();
+//  public Double getPromedioTemperatura(String ciudad){
+//    List<Map<String,Object>> condicionesClimaticas = this.getApiClima().getWeather(ciudad);
+//    List<Double> temperaturas = new ArrayList<>();
+//
+//    for(int i=0; i<12; i++){
+//      HashMap<String,Object> hora_i = (HashMap<String,Object>) condicionesClimaticas.get(i);
+//      HashMap<String,Object> temperature = (HashMap<String, Object>) hora_i.get("Temperature");
+//      temperaturas.add((Integer) temperature.get("Value"));
+//    }
 
-    for(int i=0; i<12; i++){
-      HashMap<String,Object> hora_i = (HashMap<String,Object>) condicionesClimaticas.get(i);
-      HashMap<String,Object> temperature = (HashMap<String, Object>) hora_i.get("Temperature");
-      temperaturas.add((Integer) temperature.get("Value"));
-    }
-
-    return temperaturas.
-        stream().
-        mapToDouble(d->d).
-        average().
-        getAsDouble();
-  }
+//    return temperaturas.
+//        stream().
+//        mapToDouble(d->d).
+//        average().
+//        getAsDouble();
+//  }
 
   public Double getTemperaturaActual(String ciudad){
     List<Map<String,Object>> condicionesClimaticas = this.getApiClima().getWeather(ciudad);

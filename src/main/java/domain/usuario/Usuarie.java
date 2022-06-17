@@ -7,18 +7,17 @@ import domain.usuario.acciones.AccionPorAlerta;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.lang.Exception;
 import java.util.stream.Collectors;
 
-public class Usuario {
+public class Usuarie {
     private List<Guardarropa> guardarropas = new ArrayList<Guardarropa>();
     private BuilderPrenda borrador = new BuilderPrenda();
     private List<LocalDate> usosServicioAccuWeather = new ArrayList<>();
     private List<AccionPorAlerta> accionesPorAlerta = new ArrayList<>();
 
-    public Usuario() {
+    public Usuarie() {
     }
 
     public List<AccionPorAlerta> getAccionesPorAlerta() {
@@ -29,11 +28,11 @@ public class Usuario {
         this.accionesPorAlerta = accionesPorAlerta;
     }
 
-    public void ejecutarAcciones(){
-        Alerta alerta = RepositorioAlertasMeteoreologicas.getInstance().ultimaAlerta();
-        accionesPorAlerta.stream()
-            .map(accion -> accion.ejecutar(alerta));
-    }
+//    public void ejecutarAcciones(){
+//        Alerta alerta = RepositorioAlertasMeteoreologicas.getInstance().ultimaAlerta();
+//        accionesPorAlerta.stream()
+//            .map(accion -> accion.ejecutar(alerta));
+//    }
 
     public Guardarropa getGuardarropa(Integer posicion){
         return this.guardarropas.get(posicion);

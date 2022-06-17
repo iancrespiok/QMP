@@ -1,6 +1,8 @@
 package domain.atuendos;
 
 
+import java.lang.management.OperatingSystemMXBean;
+
 public class Prenda {
     private Categoria categoria;
     private Tipo tipo;
